@@ -1,0 +1,140 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.FilteredClassifier -F "weka.filters.supervised.instance.SpreadSubsample -M 2.0 -X 0.0 -S 1" -S 1 -W weka.classifiers.meta.CostSensitiveClassifier -- -cost-matrix "[0.0 1.0; 100.0 0.0]" -M -S 1 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2
+Relation:     card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8
+Instances:    1000000
+Attributes:   8
+              distance_from_home
+              distance_from_last_transaction
+              ratio_to_median_purchase_price
+              repeat_retailer
+              used_chip
+              used_pin_number
+              online_order
+              fraud
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+FilteredClassifier using weka.classifiers.meta.CostSensitiveClassifier -cost-matrix "[0.0 1.0; 100.0 0.0]" -M -S -488750258 -W weka.classifiers.trees.J48 -- -C 0.25 -M 2 on data filtered through weka.filters.supervised.instance.SpreadSubsample -M 2.0 -X 0.0 -S -1553191715
+
+Filtered Header
+@relation card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8-weka.filters.supervised.instance.SpreadSubsample-M2.0-X0.0-S-1553191715
+
+@attribute distance_from_home numeric
+@attribute distance_from_last_transaction numeric
+@attribute ratio_to_median_purchase_price numeric
+@attribute repeat_retailer {0,1}
+@attribute used_chip {0,1}
+@attribute used_pin_number {0,1}
+@attribute online_order {0,1}
+@attribute fraud {0,1}
+
+@data
+
+
+Classifier Model
+CostSensitiveClassifier using minimized expected misclasification cost
+
+weka.classifiers.trees.J48 -C 0.25 -M 2
+
+Classifier Model
+J48 pruned tree
+------------------
+
+ratio_to_median_purchase_price <= 3.999934
+|   distance_from_home <= 99.989361
+|   |   distance_from_last_transaction <= 49.979107: 0 (160732.0)
+|   |   distance_from_last_transaction > 49.979107
+|   |   |   online_order = 0: 0 (805.0)
+|   |   |   online_order = 1
+|   |   |   |   used_pin_number = 0
+|   |   |   |   |   used_chip = 0: 1 (4744.0)
+|   |   |   |   |   used_chip = 1
+|   |   |   |   |   |   repeat_retailer = 0: 1 (317.0)
+|   |   |   |   |   |   repeat_retailer = 1: 0 (521.0)
+|   |   |   |   used_pin_number = 1: 0 (173.0)
+|   distance_from_home > 99.989361
+|   |   online_order = 0
+|   |   |   distance_from_last_transaction <= 49.957682: 0 (3098.0)
+|   |   |   distance_from_last_transaction > 49.957682
+|   |   |   |   used_pin_number = 0: 1 (216.0)
+|   |   |   |   used_pin_number = 1: 0 (6.0)
+|   |   online_order = 1
+|   |   |   used_chip = 0
+|   |   |   |   used_pin_number = 0: 1 (17042.0)
+|   |   |   |   used_pin_number = 1: 0 (381.0)
+|   |   |   used_chip = 1
+|   |   |   |   distance_from_last_transaction <= 50.155287: 0 (1882.0)
+|   |   |   |   distance_from_last_transaction > 50.155287
+|   |   |   |   |   used_pin_number = 0: 1 (133.0)
+|   |   |   |   |   used_pin_number = 1: 0 (3.0)
+ratio_to_median_purchase_price > 3.999934
+|   used_pin_number = 0
+|   |   online_order = 0
+|   |   |   repeat_retailer = 0
+|   |   |   |   used_chip = 0: 1 (2451.0)
+|   |   |   |   used_chip = 1
+|   |   |   |   |   distance_from_last_transaction <= 49.552: 0 (259.0)
+|   |   |   |   |   distance_from_last_transaction > 49.552: 1 (16.0)
+|   |   |   repeat_retailer = 1
+|   |   |   |   distance_from_home <= 99.977954
+|   |   |   |   |   distance_from_last_transaction <= 49.9026: 0 (4979.0)
+|   |   |   |   |   distance_from_last_transaction > 49.9026: 1 (404.0)
+|   |   |   |   distance_from_home > 99.977954: 1 (1604.0)
+|   |   online_order = 1: 1 (60203.0)
+|   used_pin_number = 1
+|   |   distance_from_home <= 100.135672
+|   |   |   distance_from_last_transaction <= 50.125271: 0 (1901.0)
+|   |   |   distance_from_last_transaction > 50.125271
+|   |   |   |   online_order = 0: 0 (12.0)
+|   |   |   |   online_order = 1
+|   |   |   |   |   used_chip = 0: 1 (71.0)
+|   |   |   |   |   used_chip = 1
+|   |   |   |   |   |   repeat_retailer = 0: 1 (6.0)
+|   |   |   |   |   |   repeat_retailer = 1: 0 (3.0)
+|   |   distance_from_home > 100.135672
+|   |   |   used_chip = 0
+|   |   |   |   online_order = 0: 0 (17.0)
+|   |   |   |   online_order = 1: 1 (193.0)
+|   |   |   used_chip = 1
+|   |   |   |   distance_from_last_transaction <= 44.613473: 0 (34.0)
+|   |   |   |   distance_from_last_transaction > 44.613473: 1 (3.0)
+
+Number of Leaves  : 	30
+
+Size of the tree : 	59
+
+
+Cost Matrix
+   0   1
+ 100   0
+
+
+Time taken to build model: 6.39 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances      999905               99.9905 %
+Incorrectly Classified Instances        95                0.0095 %
+Kappa statistic                          0.9994
+Mean absolute error                      0.0001
+Root mean squared error                  0.0097
+Relative absolute error                  0.0596 %
+Root relative squared error              3.4511 %
+Total Number of Instances          1000000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      0,999    1,000     1,000     0
+                 1,000    0,000    0,999      1,000    0,999      0,999    1,000     0,999     1
+Weighted Avg.    1,000    0,000    1,000      1,000    1,000      0,999    1,000     1,000     
+
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+ 912505     92 |      a = 0
+      3  87400 |      b = 1
+

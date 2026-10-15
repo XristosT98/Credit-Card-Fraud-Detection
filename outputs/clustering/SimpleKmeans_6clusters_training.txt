@@ -1,0 +1,67 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -init 0 -max-candidates 100 -periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 6 -A "weka.core.EuclideanDistance -R first-last" -I 500 -num-slots 1 -S 10
+Relation:     card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R8-weka.filters.unsupervised.attribute.MathExpression-Elog(A+1)-R4-8-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    1000000
+Attributes:   8
+              distance_from_home
+              distance_from_last_transaction
+              ratio_to_median_purchase_price
+              repeat_retailer
+              used_chip
+              used_pin_number
+              online_order
+Ignored:
+              fraud
+Test mode:    evaluate on training data
+
+
+=== Clustering model (full training set) ===
+
+
+kMeans
+======
+
+Number of iterations: 8
+Within cluster sum of squared errors: 186805.75985251507
+
+Initial starting points (random):
+
+Cluster 0: 0.155406,0.113927,0.057493,1,0,0,1
+Cluster 1: 0.133777,0.158606,0.114138,1,0,0,1
+Cluster 2: 0.216765,0.125412,0.281557,1,0,0,1
+Cluster 3: 0.523549,0.033003,0.038505,1,1,0,1
+Cluster 4: 0.486677,0.014974,0.036149,1,1,0,0
+Cluster 5: 0.197584,0.036366,0.09709,1,1,0,1
+
+Missing values globally replaced with mean/mode
+
+Final cluster centroids:
+                                              Cluster#
+Attribute                         Full Data          0          1          2          3          4          5
+                                (1000000.0)  (37695.0)  (76747.0) (334851.0) (200857.0) (308133.0)  (41717.0)
+=============================================================================================================
+distance_from_home                   0.2681     0.2934     0.0764     0.2938     0.2937     0.2942     0.0764
+distance_from_last_transaction       0.1073     0.1081      0.108     0.1069     0.1074     0.1075     0.1068
+ratio_to_median_purchase_price        0.147     0.1462     0.1465     0.1472     0.1469     0.1471     0.1469
+repeat_retailer                      0.8815          1          0          1          1          1          0
+used_chip                            0.3504          0          0          0          1     0.3499          1
+used_pin_number                      0.1006          1     0.1001          0     0.0989     0.1009     0.1025
+online_order                         0.6506          1     0.6528          1          1          0     0.6483
+
+
+
+
+Time taken to build model (full training data) : 4.98 seconds
+
+=== Model and evaluation on training set ===
+
+Clustered Instances
+
+0       37695 (  4%)
+1       76747 (  8%)
+2      334851 ( 33%)
+3      200857 ( 20%)
+4      308133 ( 31%)
+5       41717 (  4%)
+

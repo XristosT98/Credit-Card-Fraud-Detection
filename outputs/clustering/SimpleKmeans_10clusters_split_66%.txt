@@ -1,0 +1,114 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -init 0 -max-candidates 100 -periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 10 -A "weka.core.EuclideanDistance -R first-last" -I 500 -num-slots 1 -S 10
+Relation:     card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R8-weka.filters.unsupervised.attribute.MathExpression-Elog(A+1)-R4-8-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    1000000
+Attributes:   8
+              distance_from_home
+              distance_from_last_transaction
+              ratio_to_median_purchase_price
+              repeat_retailer
+              used_chip
+              used_pin_number
+              online_order
+Ignored:
+              fraud
+Test mode:    split 66% train, remainder test
+
+
+=== Clustering model (full training set) ===
+
+
+kMeans
+======
+
+Number of iterations: 47
+Within cluster sum of squared errors: 82166.91243942897
+
+Initial starting points (random):
+
+Cluster 0: 0.155406,0.113927,0.057493,1,0,0,1
+Cluster 1: 0.133777,0.158606,0.114138,1,0,0,1
+Cluster 2: 0.216765,0.125412,0.281557,1,0,0,1
+Cluster 3: 0.523549,0.033003,0.038505,1,1,0,1
+Cluster 4: 0.486677,0.014974,0.036149,1,1,0,0
+Cluster 5: 0.197584,0.036366,0.09709,1,1,0,1
+Cluster 6: 0.419152,0.069653,0.253194,1,0,0,0
+Cluster 7: 0.342717,0.391725,0.105245,1,0,0,0
+Cluster 8: 0.385566,0.202242,0.121155,1,0,0,1
+Cluster 9: 0.25324,0.020132,0.168542,1,0,0,0
+
+Missing values globally replaced with mean/mode
+
+Final cluster centroids:
+                                              Cluster#
+Attribute                         Full Data          0          1          2          3          4          5          6          7          8          9
+                                (1000000.0) (205842.0)  (50103.0) (129009.0) (200857.0) (122496.0)  (27046.0)  (20178.0) (180130.0)  (37695.0)  (26644.0)
+=========================================================================================================================================================
+distance_from_home                   0.2681     0.2186     0.0763     0.4138     0.2937     0.2683     0.0763     0.2926     0.2943     0.2934     0.0765
+distance_from_last_transaction       0.1073     0.1067     0.1086     0.1073     0.1074      0.107     0.1075     0.1061     0.1078     0.1081     0.1071
+ratio_to_median_purchase_price        0.147     0.1472     0.1464     0.1471     0.1469     0.1472     0.1474     0.1485     0.1468     0.1462     0.1468
+repeat_retailer                      0.8815          1          0          1          1     0.8802          0          1          1          1          0
+used_chip                            0.3504          0          0          0          1          1          1          0          0          0          0
+used_pin_number                      0.1006          0     0.1004          0     0.0989      0.101      0.104          1          0          1     0.0995
+online_order                         0.6506          1          1          1          1          0          1          0          0          1          0
+
+
+
+
+Time taken to build model (full training data) : 51.65 seconds
+
+=== Model and evaluation on test split ===
+
+kMeans
+======
+
+Number of iterations: 38
+Within cluster sum of squared errors: 76830.09580509311
+
+Initial starting points (random):
+
+Cluster 0: 0.171317,0.0679,0.008777,1,1,0,1
+Cluster 1: 0.41564,0.057459,0.217206,1,1,0,1
+Cluster 2: 0.184521,0.062052,0.11421,1,0,0,1
+Cluster 3: 0.413877,0.102411,0.189652,1,1,0,1
+Cluster 4: 0.246613,0.04071,0.076006,1,0,0,1
+Cluster 5: 0.106723,0.129703,0.154569,0,0,0,1
+Cluster 6: 0.13154,0.093726,0.038408,1,0,0,1
+Cluster 7: 0.231641,0.356859,0.030375,1,0,0,0
+Cluster 8: 0.429033,0.177618,0.04166,1,0,0,1
+Cluster 9: 0.356516,0.199667,0.071779,1,0,0,1
+
+Missing values globally replaced with mean/mode
+
+Final cluster centroids:
+                                              Cluster#
+Attribute                         Full Data          0          1          2          3          4          5          6          7          8          9
+                                 (660000.0) (119695.0)  (71219.0)  (38623.0)  (14820.0)  (89869.0)  (72775.0)  (28161.0) (132240.0)  (57381.0)  (35217.0)
+=========================================================================================================================================================
+distance_from_home                   0.2684     0.2938     0.2944     0.2696     0.2681     0.2212     0.0764     0.2676      0.294     0.4353      0.277
+distance_from_last_transaction       0.1074     0.1073     0.1072     0.0818      0.107     0.0646     0.1081     0.1078     0.1077     0.0772     0.2911
+ratio_to_median_purchase_price       0.1469      0.147     0.1473     0.3115     0.1473     0.1006     0.1462      0.146     0.1469     0.1201     0.1291
+repeat_retailer                      0.8819          1          1          1     0.8773          1          0      0.882          1          1          1
+used_chip                            0.3505          1          1          0          1          0     0.3514          0          0          0          0
+used_pin_number                      0.1001          0        0.1          0          1          0     0.0372          1     0.1004          0          0
+online_order                         0.6507          1          0          1          1          1      0.628          1          0          1          1
+
+
+
+
+Time taken to build model (percentage split) : 23.76 seconds
+
+Clustered Instances
+
+ 0       61292 ( 18%)
+ 1       36606 ( 11%)
+ 2       19952 (  6%)
+ 3        7862 (  2%)
+ 4       46578 ( 14%)
+ 5       37845 ( 11%)
+ 6       14566 (  4%)
+ 7       68068 ( 20%)
+ 8       29330 (  9%)
+ 9       17901 (  5%)
+

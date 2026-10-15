@@ -1,0 +1,95 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -init 0 -max-candidates 100 -periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 10 -A "weka.core.EuclideanDistance -R first-last" -I 500 -num-slots 1 -S 10
+Relation:     card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8-weka.filters.unsupervised.attribute.MathExpression-Elog(A+1)-R4-8-weka.filters.unsupervised.attribute.Normalize-S1.0-T0.0
+Instances:    1000000
+Attributes:   8
+              distance_from_home
+              distance_from_last_transaction
+              ratio_to_median_purchase_price
+              repeat_retailer
+              used_chip
+              used_pin_number
+              online_order
+Ignored:
+              fraud
+Test mode:    Classes to clusters evaluation on training data
+
+=== Clustering model (full training set) ===
+
+
+kMeans
+======
+
+Number of iterations: 35
+Within cluster sum of squared errors: 241753.98153487052
+
+Initial starting points (random):
+
+Cluster 0: 0.155406,0.113927,0.057493,1,0,0,1
+Cluster 1: 0.133777,0.158606,0.114138,1,0,0,1
+Cluster 2: 0.216765,0.125412,0.281557,1,0,0,1
+Cluster 3: 0.523549,0.033003,0.038505,1,1,0,1
+Cluster 4: 0.486677,0.014974,0.036149,1,1,0,0
+Cluster 5: 0.197584,0.036366,0.09709,1,1,0,1
+Cluster 6: 0.419152,0.069653,0.253194,1,0,0,0
+Cluster 7: 0.342717,0.391725,0.105245,1,0,0,0
+Cluster 8: 0.385566,0.202242,0.121155,1,0,0,1
+Cluster 9: 0.25324,0.020132,0.168542,1,0,0,0
+
+Missing values globally replaced with mean/mode
+
+Final cluster centroids:
+                                              Cluster#
+Attribute                         Full Data          0          1          2          3          4          5          6          7          8          9
+                                (1000000.0) (164003.0)  (64244.0)  (69435.0)  (97288.0) (122496.0) (130615.0)  (79800.0)  (40171.0) (124967.0) (106981.0)
+=========================================================================================================================================================
+distance_from_home                   0.2681     0.1754     0.2507     0.2456     0.3901     0.2683      0.177      0.401     0.2499     0.4107     0.1768
+distance_from_last_transaction       0.1073     0.0668     0.2949     0.0828     0.1072      0.107     0.1076     0.0758     0.2836     0.0773     0.0652
+ratio_to_median_purchase_price        0.147     0.1037     0.1292     0.3159      0.146     0.1472     0.1477     0.1462     0.1469     0.1191     0.1476
+repeat_retailer                           1          1          1          1          1          1          1          1          1          1          1
+used_chip                                 0          0          0          0          1          1          1          0          0          0          0
+used_pin_number                           0          0          0          0          0          0          0          0          0          0          0
+online_order                              1          1          1          1          1          0          1          0          0          1          0
+
+
+
+
+Time taken to build model (full training data) : 38.61 seconds
+
+=== Model and evaluation on training set ===
+
+Clustered Instances
+
+ 0      164003 ( 16%)
+ 1       64244 (  6%)
+ 2       69435 (  7%)
+ 3       97288 ( 10%)
+ 4      122496 ( 12%)
+ 5      130615 ( 13%)
+ 6       79800 (  8%)
+ 7       40171 (  4%)
+ 8      124967 ( 12%)
+ 9      106981 ( 11%)
+
+
+Class attribute: fraud
+Classes to Clusters:
+
+      0      1      2      3      4      5      6      7      8      9  <-- assigned to cluster
+ 164003  56484  35023  88427 121685 117877  78796  39411 106027 104864 | 0
+      0   7760  34412   8861    811  12738   1004    760  18940   2117 | 1
+
+Cluster  0 <-- 0
+Cluster  1 <-- No class
+Cluster  2 <-- 1
+Cluster  3 <-- No class
+Cluster  4 <-- No class
+Cluster  5 <-- No class
+Cluster  6 <-- No class
+Cluster  7 <-- No class
+Cluster  8 <-- No class
+Cluster  9 <-- No class
+
+Incorrectly clustered instances :	801585.0	 80.1585 %
+

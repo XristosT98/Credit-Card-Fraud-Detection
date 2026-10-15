@@ -1,0 +1,122 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8
+Instances:    1000000
+Attributes:   8
+              distance_from_home
+              distance_from_last_transaction
+              ratio_to_median_purchase_price
+              repeat_retailer
+              used_chip
+              used_pin_number
+              online_order
+              fraud
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+ratio_to_median_purchase_price <= 4.000096
+|   distance_from_home <= 100.0008
+|   |   distance_from_last_transaction <= 49.995379: 0 (839528.0)
+|   |   distance_from_last_transaction > 49.995379
+|   |   |   online_order = 0: 0 (4379.0)
+|   |   |   online_order = 1
+|   |   |   |   used_chip = 0
+|   |   |   |   |   used_pin_number = 0: 1 (4744.0)
+|   |   |   |   |   used_pin_number = 1: 0 (558.0)
+|   |   |   |   used_chip = 1
+|   |   |   |   |   repeat_retailer = 0
+|   |   |   |   |   |   used_pin_number = 0: 1 (317.0)
+|   |   |   |   |   |   used_pin_number = 1: 0 (45.0)
+|   |   |   |   |   repeat_retailer = 1: 0 (2590.0)
+|   distance_from_home > 100.0008
+|   |   online_order = 0
+|   |   |   distance_from_last_transaction <= 50.136708: 0 (15383.0)
+|   |   |   distance_from_last_transaction > 50.136708
+|   |   |   |   used_pin_number = 0: 1 (216.0)
+|   |   |   |   used_pin_number = 1: 0 (28.0)
+|   |   online_order = 1
+|   |   |   used_chip = 0
+|   |   |   |   used_pin_number = 0: 1 (17042.0)
+|   |   |   |   used_pin_number = 1: 0 (1860.0)
+|   |   |   used_chip = 1
+|   |   |   |   distance_from_last_transaction <= 50.574482: 0 (10001.0)
+|   |   |   |   distance_from_last_transaction > 50.574482
+|   |   |   |   |   used_pin_number = 0: 1 (133.0)
+|   |   |   |   |   used_pin_number = 1: 0 (17.0)
+ratio_to_median_purchase_price > 4.000096
+|   online_order = 0
+|   |   repeat_retailer = 0
+|   |   |   used_chip = 0
+|   |   |   |   used_pin_number = 0: 1 (2451.0)
+|   |   |   |   used_pin_number = 1: 0 (280.0)
+|   |   |   used_chip = 1
+|   |   |   |   distance_from_last_transaction <= 38.951744: 0 (1492.0)
+|   |   |   |   distance_from_last_transaction > 38.951744
+|   |   |   |   |   used_pin_number = 0
+|   |   |   |   |   |   distance_from_last_transaction <= 50.468165: 0 (6.0)
+|   |   |   |   |   |   distance_from_last_transaction > 50.468165: 1 (16.0)
+|   |   |   |   |   used_pin_number = 1: 0 (3.0)
+|   |   repeat_retailer = 1
+|   |   |   distance_from_home <= 100.036493
+|   |   |   |   distance_from_last_transaction <= 50.032841: 0 (29726.0)
+|   |   |   |   distance_from_last_transaction > 50.032841
+|   |   |   |   |   used_pin_number = 0: 1 (404.0)
+|   |   |   |   |   used_pin_number = 1: 0 (38.0)
+|   |   |   distance_from_home > 100.036493
+|   |   |   |   used_pin_number = 0: 1 (1604.0)
+|   |   |   |   used_pin_number = 1: 0 (171.0/1.0)
+|   online_order = 1
+|   |   used_pin_number = 0: 1 (60203.0)
+|   |   used_pin_number = 1
+|   |   |   distance_from_home <= 100.343968
+|   |   |   |   distance_from_last_transaction <= 50.125271: 0 (6347.0)
+|   |   |   |   distance_from_last_transaction > 50.125271
+|   |   |   |   |   used_chip = 0: 1 (71.0)
+|   |   |   |   |   used_chip = 1
+|   |   |   |   |   |   repeat_retailer = 0: 1 (6.0)
+|   |   |   |   |   |   repeat_retailer = 1: 0 (26.0)
+|   |   |   distance_from_home > 100.343968
+|   |   |   |   used_chip = 0: 1 (193.0)
+|   |   |   |   used_chip = 1
+|   |   |   |   |   distance_from_last_transaction <= 19.782178: 0 (115.0)
+|   |   |   |   |   distance_from_last_transaction > 19.782178
+|   |   |   |   |   |   distance_from_last_transaction <= 46.093206: 0 (5.0)
+|   |   |   |   |   |   distance_from_last_transaction > 46.093206: 1 (2.0)
+
+Number of Leaves  : 	35
+
+Size of the tree : 	69
+
+
+Time taken to build model: 21.27 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances      999985               99.9985 %
+Incorrectly Classified Instances        15                0.0015 %
+Kappa statistic                          0.9999
+Mean absolute error                      0     
+Root mean squared error                  0.0039
+Relative absolute error                  0.0103 %
+Root relative squared error              1.3701 %
+Total Number of Instances          1000000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     0
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     1
+Weighted Avg.    1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     
+
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+ 912593      4 |      a = 0
+     11  87392 |      b = 1
+

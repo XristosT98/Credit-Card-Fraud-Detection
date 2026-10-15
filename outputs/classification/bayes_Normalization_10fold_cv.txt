@@ -1,0 +1,109 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.FilteredClassifier -F "weka.filters.MultiFilter -F \"weka.filters.supervised.instance.SpreadSubsample -M 1.0 -X 0.0 -S 1\" -F \"weka.filters.unsupervised.attribute.MathExpression -E log(A+1)\" -S 1" -S 1 -W weka.classifiers.bayes.NaiveBayes
+Relation:     card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8
+Instances:    1000000
+Attributes:   8
+              distance_from_home
+              distance_from_last_transaction
+              ratio_to_median_purchase_price
+              repeat_retailer
+              used_chip
+              used_pin_number
+              online_order
+              fraud
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+FilteredClassifier using weka.classifiers.bayes.NaiveBayes  on data filtered through weka.filters.MultiFilter -F "weka.filters.supervised.instance.SpreadSubsample -M 1.0 -X 0.0 -S -1553191715" -F "weka.filters.unsupervised.attribute.MathExpression -E log(A+1)" -S -1553191715
+
+Filtered Header
+@relation 'card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8-weka.filters.supervised.instance.SpreadSubsample-M1.0-X0.0-S-1553191715-weka.filters.unsupervised.attribute.MathExpression-Elog(A+1)-weka.filters.MultiFilter-Fweka.filters.supervised.instance.SpreadSubsample -M 1.0 -X 0.0 -S -1553191715-Fweka.filters.unsupervised.attribute.MathExpression -E log(A+1)-S-1553191715'
+
+@attribute distance_from_home numeric
+@attribute distance_from_last_transaction numeric
+@attribute ratio_to_median_purchase_price numeric
+@attribute repeat_retailer {0,1}
+@attribute used_chip {0,1}
+@attribute used_pin_number {0,1}
+@attribute online_order {0,1}
+@attribute fraud {0,1}
+
+@data
+
+
+Classifier Model
+Naive Bayes Classifier
+
+                                   Class
+Attribute                              0       1
+                                   (0.5)   (0.5)
+=================================================
+distance_from_home
+  mean                             2.4469  3.0182
+  std. dev.                        1.1438  1.5962
+  weight sum                        87403   87403
+  precision                        0.0001  0.0001
+
+distance_from_last_transaction
+  mean                             0.9841  1.2435
+  std. dev.                        0.9313  1.3047
+  weight sum                        87403   87403
+  precision                        0.0001  0.0001
+
+ratio_to_median_purchase_price
+  mean                             0.7434   1.705
+  std. dev.                        0.4798  0.7232
+  weight sum                        87403   87403
+  precision                             0       0
+
+repeat_retailer
+  0                               10177.0 10479.0
+  1                               77228.0 76926.0
+  [total]                         87405.0 87405.0
+
+used_chip
+  0                               56319.0 64994.0
+  1                               31086.0 22411.0
+  [total]                         87405.0 87405.0
+
+used_pin_number
+  0                               77788.0 87131.0
+  1                                9617.0   274.0
+  [total]                         87405.0 87405.0
+
+online_order
+  0                               33103.0  4693.0
+  1                               54302.0 82712.0
+  [total]                         87405.0 87405.0
+
+
+
+Time taken to build model: 1.63 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances      887159               88.7159 %
+Incorrectly Classified Instances    112841               11.2841 %
+Kappa statistic                          0.5406
+Mean absolute error                      0.2007
+Root mean squared error                  0.2957
+Relative absolute error                125.8256 %
+Root relative squared error            104.7131 %
+Total Number of Instances          1000000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,881    0,049    0,995      0,881    0,934      0,597    0,975     0,998     0
+                 0,951    0,119    0,434      0,951    0,596      0,597    0,975     0,759     1
+Weighted Avg.    0,887    0,055    0,946      0,887    0,905      0,597    0,975     0,977     
+
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+ 804016 108581 |      a = 0
+   4260  83143 |      b = 1
+

@@ -1,0 +1,69 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.meta.FilteredClassifier -F "weka.filters.supervised.instance.SpreadSubsample -M 1.0 -X 0.0 -S 1" -S 1 -W weka.classifiers.trees.RandomForest -- -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1
+Relation:     card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8
+Instances:    1000000
+Attributes:   8
+              distance_from_home
+              distance_from_last_transaction
+              ratio_to_median_purchase_price
+              repeat_retailer
+              used_chip
+              used_pin_number
+              online_order
+              fraud
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+FilteredClassifier using weka.classifiers.trees.RandomForest -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S -488750258 on data filtered through weka.filters.supervised.instance.SpreadSubsample -M 1.0 -X 0.0 -S -1553191715
+
+Filtered Header
+@relation card_transdata-weka.filters.unsupervised.attribute.NumericToNominal-R4-8-weka.filters.supervised.instance.SpreadSubsample-M1.0-X0.0-S-1553191715
+
+@attribute distance_from_home numeric
+@attribute distance_from_last_transaction numeric
+@attribute ratio_to_median_purchase_price numeric
+@attribute repeat_retailer {0,1}
+@attribute used_chip {0,1}
+@attribute used_pin_number {0,1}
+@attribute online_order {0,1}
+@attribute fraud {0,1}
+
+@data
+
+
+Classifier Model
+RandomForest
+
+Bagging with 100 iterations and base learner
+
+weka.classifiers.trees.RandomTree -K 0 -M 1.0 -V 0.001 -S -488750258 -do-not-check-capabilities
+
+Time taken to build model: 95.72 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances      999933               99.9933 %
+Incorrectly Classified Instances        67                0.0067 %
+Kappa statistic                          0.9996
+Mean absolute error                      0.0005
+Root mean squared error                  0.0088
+Relative absolute error                  0.3189 %
+Root relative squared error              3.1319 %
+Total Number of Instances          1000000     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     0
+                 1,000    0,000    0,999      1,000    1,000      1,000    1,000     1,000     1
+Weighted Avg.    1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     
+
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+ 912531     66 |      a = 0
+      1  87402 |      b = 1
+
